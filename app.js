@@ -211,6 +211,11 @@ yesBtn.addEventListener("click", () => {
 });
 
 backBtn.addEventListener("click", () => {
+  state.questionIndex = 0;
+  setImage(heroImage, images.question, state.questionIndex);
+  noBtn.style.position = "";
+  noBtn.style.left = "";
+  noBtn.style.top = "";
   showScreen("question");
 });
 
