@@ -1,0 +1,223 @@
+:root {
+  --bg: #fff4f6;
+  --bg-accent: #ffdbe3;
+  --text: #2b2430;
+  --pink: #ff5f8f;
+  --red: #ff3b6b;
+  --shadow: rgba(255, 79, 120, 0.2);
+  --white: #ffffff;
+  --radius: 28px;
+  --transition: 200ms ease;
+  font-family: "Comfortaa", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, var(--bg-accent), var(--bg));
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px 24px;
+}
+
+.screen {
+  display: none;
+  width: min(960px, 100%);
+}
+
+.screen--active {
+  display: block;
+}
+
+.screen--active .card {
+  animation: screenEnter 320ms ease;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  padding: clamp(24px, 4vw, 48px);
+  background: linear-gradient(130deg, #fff, #ffe7ef);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px var(--shadow);
+  align-items: center;
+}
+
+.card__media {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.card__media img {
+  width: 100%;
+  display: block;
+  height: clamp(240px, 40vw, 360px);
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+#heroImage {
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.card__content h1 {
+  font-size: clamp(24px, 4vw, 42px);
+  margin: 0 0 8px;
+  font-family: "Comfortaa", "Nunito", sans-serif;
+}
+
+.card__content p {
+  margin: 0 0 16px;
+  font-family: "Nunito", "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.actions {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 72px;
+}
+
+.btn {
+  border: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--yes {
+  background: var(--red);
+  color: var(--white);
+  box-shadow: 0 10px 22px rgba(255, 59, 107, 0.25);
+}
+
+.btn--yes:hover {
+  transform: translateY(-2px);
+}
+
+.btn--no {
+  background: #ffd6e5;
+  color: #4a1f2c;
+  position: relative;
+}
+
+.btn--ghost {
+  background: transparent;
+  border: 2px solid var(--red);
+  color: var(--red);
+}
+
+.card--celebrate {
+  background: linear-gradient(130deg, #fff, #ffe7ef);
+}
+
+.sound {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--white);
+  box-shadow: 0 12px 30px var(--shadow);
+  cursor: pointer;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+}
+
+.sound__icon {
+  font-size: 22px;
+  color: var(--red);
+  line-height: 1;
+}
+
+.loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
+  gap: 50px;
+  background: #ffffff;
+  z-index: 5;
+  opacity: 1;
+  transition: opacity 400ms ease;
+}
+
+.loader.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader__gif {
+  width: min(220px, 70vw);
+  height: auto;
+  display: block;
+}
+
+.loader__button {
+  min-width: 180px;
+  font-family: "Comfortaa", "Nunito", sans-serif;
+  font-size: 30px;
+}
+
+@media (max-width: 700px) {
+  .actions {
+    justify-content: flex-start;
+  }
+
+  .sound {
+    top: 14px;
+    right: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@keyframes screenEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

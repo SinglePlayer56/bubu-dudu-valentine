@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Валентинка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Nunito:wght@400;600&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="loader" class="loader" aria-live="polite">
+      <img class="loader__gif" src="assets/loader.gif" alt="Загрузка" />
+      <button id="continueBtn" class="btn btn--yes loader__button">
+        БУБУ?!?!?!?!?!
+      </button>
+    </div>
+
+    <button id="soundToggle" class="sound" aria-label="Включить музыку" title="Музыка">
+      <span class="sound__icon material-symbols-rounded" aria-hidden="true"
+        >volume_up</span
+      >
+    </button>
+
+    <main id="app" class="app" hidden>
+      <section id="screenQuestion" class="screen screen--active" aria-live="polite">
+        <div class="card">
+          <div class="card__media">
+            <img id="heroImage" src="" alt="" />
+          </div>
+          <div class="card__content">
+            <h1 id="heroTitle">Дуда без валентинки :( <br/> Будешь его валентинкой?</h1>
+            <p id="heroSubtitle">Дуде без валентинки очень грустно :(</p>
+            <div id="actions" class="actions">
+              <button id="yesBtn" class="btn btn--yes">Да</button>
+              <button id="noBtn" class="btn btn--no">Нет</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="screenYes" class="screen" aria-live="polite">
+        <div class="card card--celebrate">
+          <div class="card__media">
+            <img id="celebrateImage" src="" alt="" />
+          </div>
+          <div class="card__content">
+            <h1>Ура! Дуда счастлив!</h1>
+            <p>Буба и Дуда - ЛЮБОВЬ!!!</p>
+            <button id="backBtn" class="btn btn--ghost">Вернуться</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <audio id="bgAudio" loop preload="auto">
+      <source src="assets/music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
