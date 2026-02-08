@@ -1,10 +1,15 @@
+const ASSET_VERSION = "20260208-1";
+
 const images = {
   question: [
-    "assets/question-1.jpg",
-    "assets/question-2.gif",
-    "assets/question-3.gif",
+    `assets/question-1.jpg?v=${ASSET_VERSION}`,
+    `assets/question-2.gif?v=${ASSET_VERSION}`,
+    `assets/question-3.gif?v=${ASSET_VERSION}`,
   ],
-  celebrate: ["assets/yes-1.jpg", "assets/yes-2.jpg"],
+  celebrate: [
+    `assets/yes-1.jpg?v=${ASSET_VERSION}`,
+    `assets/yes-2.jpg?v=${ASSET_VERSION}`,
+  ],
 };
 
 const state = {
